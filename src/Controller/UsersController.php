@@ -147,29 +147,4 @@ final class UsersController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
-    // #[Route('/usuarios/validar-manualmente', name: 'usuarios_valida')]
-    // public function validarManual(Request $request, ValidatorInterface $validator, EntityManagerInterface $em): Response
-    // {
-    //      $this->denyAccessUnlessGranted('ROLE_USER');
-    //     $user = new Users();
-    //     $user->setNome(''); // inválido (NotBlank)
-    //     $user->setLogin('admin');
-    //     $user->setSenha('123'); // inválido (Length min: 6)
-    //     $user->setEmail('email-invalido'); // inválido (Email)
-
-    //     // Valida o objeto inteiro
-    //     $errors = $validator->validate($user);
-
-    //     if (count($errors) > 0) {
-    //         // Retorna os erros como string ou JSON
-    //         return new Response((string) $errors, 400);
-    //     }
-
-    //     // Se não tiver erros, salva normalmente
-    //     $em->persist($user);
-    //     $em->flush();
-
-    //     return new Response('Usuário salvo com sucesso!');
-    // }
 }

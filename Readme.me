@@ -1,0 +1,85 @@
+
+## Descrição
+
+Nesta aplicação, o objetivo foi desenvolver um teste seguindo a checklist de tarefas abaixo, nela podemos adquirir os conhecimentos básicos do framework Synfony do PHP.
+
+# ✅ Checklist de Aprendizagem Symfony (para novo programador)
+
+## �� Fundamentos Symfony
+- [ ] Criar novo projeto com Symfony Flex
+- [ ] Criar controller com rota simples
+- [ ] Passar parâmetros para rotas
+- [ ] Usar Request e Response no Controller
+- [ ] Injeção de dependências (ex: EntityManager)
+
+## ��️ Doctrine ORM
+- [ ] Criar entidade com `make:entity`
+- [ ] Criar e aplicar migrations
+- [ ] Criar relacionamento ManyToOne / OneToMany
+- [ ] Popular base de dados com `fixtures`
+
+## �� Formulários e Validação
+- [ ] Criar `FormType` e renderizar no Twig
+- [ ] Processar `handleRequest` no controller
+- [ ] Adicionar validações (`NotBlank`, `Length`)
+- [ ] Validar manualmente com `ValidatorInterface`
+- [ ] Upload de ficheiro com `FileType`
+
+## �� Twig
+- [ ] Criar layout base com blocos
+- [ ] Criar tabela de listagem com loop
+- [ ] Criar partials reutilizáveis
+- [ ] Usar filtros e condições no template
+
+## �� QueryBuilder e Filtros
+- [ ] Criar pesquisa com `QueryBuilder`
+- [ ] Adicionar joins entre entidades
+- [ ] Usar paginação com KnpPaginator
+- [ ] Ordenar resultados dinamicamente
+
+## �� Segurança
+- [ ] Criar login com `make:auth`
+- [ ] Restringir acesso com `is_granted`
+- [ ] Criar Voter simples
+
+## ��️ Funcionalidades úteis
+- [ ] Criar serviço customizado
+- [ ] Usar eventos (Listener ou Subscriber)
+- [ ] Enviar email com `MailerInterface`
+- [ ] Criar comando com `make:command`
+
+[Synfony](https://github.com/DevHoffman/teste-synfony)
+Este é meu desafio desenvolvido. Espero que gostem.
+
+Siga os passos abaixo e vai executar o projeto.
+
+## Instalação
+
+```bash
+$ composer install
+ou
+$ composer i
+```
+
+## Executando a aplicação
+
+```bash
+# development
+$ symfony server:start
+ou
+$ php -S 0.0.0.0:8000 -t public
+```
+
+## Rotas
+
+Neste projeto existem 6 rotas:
+
+Exemplo: http://localhost:3000/query?nome=Vitória
+
+Rotas:
+- [Home](http://localhost:8000/)
+- [Login]http://localhost:8000/login
+- [Logout]http://localhost:8000/logout
+- [Pesquisar_nome]http://localhost:8000/query?nome=[Qualquer_nome]
+- [Usuarios]http://localhost:8000/usuarios
+- [Cadastrar]http://localhost:8000/usuarios/novo
