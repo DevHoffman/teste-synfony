@@ -1,0 +1,39 @@
+.margin-menu {
+    padding-top: 66px;
+}
+
+.navbar {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+#usuarios-lista .pagination {
+    display: flex;
+    justify-content: end;
+    margin-top: 20px;
+}
+
+.bg-person {
+    background-image: url('/uploads/background-home.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    background-color: transparent;
+}
+
+.waves {
+    color: #3a3a52;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.waves svg {
+    fill: rgba(255, 255, 255, 0.6);
+}
+
+.sf-toolbar-clearer {
+    position: fixed;
+}

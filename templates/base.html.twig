@@ -18,12 +18,6 @@
 			{% include 'components/navbar.html.twig' %}
 		{% endblock %}
 
-		{% if app.user %}
-			<a href="{{ path('app_logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Sair</a>
-			<form id="logout-form" action="{{ path('app_logout') }}" method="POST" style="display:none;"></form>
-		{% else %}
-			<a href="{{ path('app_login') }}">Entrar</a>
-		{% endif %}
 		{% block body %}{% endblock %}
 
 	</body>
