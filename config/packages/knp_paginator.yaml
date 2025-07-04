@@ -1,0 +1,10 @@
+knp_paginator:
+    template:
+        pagination: '@KnpPaginator/Pagination/bootstrap_v5_pagination.html.twig'
+        sortable: '@KnpPaginator/Pagination/sortable_link.html.twig'
+    page_range: 5             # quantas páginas mostrar no menu de paginação
+    default_options:
+        page_name: page       # nome do parâmetro GET (ex: ?page=2)
+        sort_field_name: sort
+        sort_direction_name: direction
+        distinct: true        # garante que o resultado seja único

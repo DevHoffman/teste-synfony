@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lista de Usuários
+{% endblock %}
+
+{% block body %}
+	<div class="container mt-5 margin-menu" id="usuarios-lista">
+		<h2 class="mb-4 text-center">Lista de Usuários</h2>
+
+		<form method="get" class="mb-4 d-flex" role="search">
+			<input type="text" name="q" value="{{ app.request.get('q') }}" class="form-control me-2" placeholder="Buscar por nome...">
+			<button class="btn btn-outline-primary" type="submit">Buscar</button>
+		</form>
+
+		<div class="table-responsive">
+			<table class="table table-striped table-hover align-middle">
+				<thead class="table-light">
+					<tr>
+						<th>Foto</th>
+						<th>
+							<a href="{{ path('usuarios', { sort: 'u.nome', direction: app.request.get('direction') == 'asc' ? 'desc' : 'asc' }) }}">
+								Nome
+							</a>
+						</th>
+						<th>
+							<a href="{{ path('usuarios', { sort: 'u.email', direction: app.request.get('direction') == 'asc' ? 'desc' : 'asc' }) }}">
+								Email
+							</a>
+						</th>
+						<th>
+							<a href="{{ path('usuarios', { sort: 'posts_count', direction: app.request.get('direction') == 'asc' ? 'desc' : 'asc' }) }}">
+								Posts
+							</a>
+						</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					{% for user in usuarios %}
+						<tr>
+							<td>
+								{% if user.avatar %}
+									<img src="{{ asset('uploads/' ~ user.avatar) }}" alt="{{ user.nome }}" class="rounded-circle" width="50">
+								{% else %}
+									<span class="text-muted fst-italic">Sem foto</span>
+								{% endif %}
+							</td>
+							<td>{{ user.nome|title }}</td>
+							<td>
+								<a href="mailto:{{ user.email }}">
+									{{ user.email|length > 30 ? user.email|slice(0, 30) ~ '…' : user.email }}
+								</a>
+							</td>
+							<td>
+								{% if usuarios.getItems()|length > 0 and usuarios.getItems()[0].posts_count is defined %}
+									{% if usuarios.getItems()[0].posts_count > 0 %}
+										{{ usuarios.getItems()[0].posts_count }}
+										post(s)
+									{% else %}
+										Nenhum post
+									{% endif %}
+								{% else %}
+									{% if user.posts|length > 0 %}
+										{{ user.posts|length }}
+										post(s)
+									{% else %}
+										Nenhum post
+									{% endif %}
+								{% endif %}
+							</td>
+							<td>
+								{% if user.status %}
+									<span class="badge bg-success">Ativo</span>
+								{% else %}
+									<span class="badge bg-secondary">Inativo</span>
+								{% endif %}
+							</td>
+						</tr>
+					{% else %}
+						<tr>
+							<td colspan="4" class="text-center text-muted">Nenhum usuário cadastrado.</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+
+		<div class="mt-4">
+			{{ knp_pagination_render(usuarios) }}
+		</div>
+
+	</div>
+{% endblock %}

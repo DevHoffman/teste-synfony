@@ -1,0 +1,32 @@
+<header>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="{{ path('home') }}">
+				<img src="{{ asset('uploads/logo-next.png') }}" alt="Next.js Logo" height="40">
+			</a>
+			<div>
+				{% if app.user %}
+					Bem-vindo,
+					{{ app.user.userIdentifier }}
+				{% endif %}
+			</div>
+			<div class="navbar-nav ms-auto align-items-center">
+				{% if not app.user %}
+					<a href="{{ path('app_login') }}" class="nav-link">Login</a>
+					|
+				{% endif %}
+
+				{% if app.user %}
+                    <a href="{{ path('usuarios') }}" class="nav-link">Usuários</a>
+                    |
+				{% endif %}
+				<a href="{{ path('usuarios_novo') }}" class="nav-link">Novo Usuário</a>
+
+				{% if app.user %}
+					|
+					<a href="{{ path('app_logout') }}" class="nav-link">Logout</a>
+				{% endif %}
+			</div>
+		</div>
+	</nav>
+</header>
