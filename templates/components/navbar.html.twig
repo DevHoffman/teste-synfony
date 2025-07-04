@@ -4,21 +4,24 @@
 			<a class="navbar-brand" href="{{ path('home') }}">
 				<img src="{{ asset('uploads/logo-next.png') }}" alt="Next.js Logo" height="40">
 			</a>
-			<div>
-				{% if app.user %}
-					Bem-vindo,
-					{{ app.user.userIdentifier }}
-				{% endif %}
-			</div>
-			<div class="navbar-nav ms-auto align-items-center">
+			{% if app.user %}
+				<div class="ms-auto">
+					<span class=" pe-3">
+						Bem-vindo,
+						{{ app.user.userIdentifier }}
+					</span>
+					|
+				</div>
+			{% endif %}
+			<div class="navbar-nav align-items-center">
 				{% if not app.user %}
 					<a href="{{ path('app_login') }}" class="nav-link">Login</a>
 					|
 				{% endif %}
 
 				{% if app.user %}
-                    <a href="{{ path('usuarios') }}" class="nav-link">Usuários</a>
-                    |
+					<a href="{{ path('usuarios') }}" class="nav-link">Usuários</a>
+					|
 				{% endif %}
 				<a href="{{ path('usuarios_novo') }}" class="nav-link">Cadastrar</a>
 
